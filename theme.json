@@ -145,6 +145,11 @@
 			"letterSpacing": false,
 			"fontFamilies": [
 				{
+					"fontFamily": "Figtree",
+					"name": "Figtree",
+					"slug": "figtree"
+				},
+				{
 					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
 					"name": "System Sans Serif",
 					"slug": "system-sans-serif"
@@ -313,7 +318,7 @@
 			"blockGap": "var(--wp--custom--layout--block-gap)"
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--system-sans-serif)",
+			"fontFamily": "var(--wp--preset--font-family--figtree)",
 			"lineHeight": "var(--wp--custom--line-height--normal)",
 			"fontSize": "var(--wp--preset--font-size--medium)"
 		}

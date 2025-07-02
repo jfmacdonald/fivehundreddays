@@ -5,11 +5,11 @@
 	max-width: var(--wp--custom--layout--page);
 	margin-inline: auto;
 	display: grid;
-	grid-template-columns: repeat( 2, minmax( 0, 1fr ) );
+	grid-template-columns: repeat( 2, minmax(0, 1fr) );
 	gap: var(--wp--custom--layout--block-gap);
 
 	@include media(">=tablet") {
-		grid-template-columns: repeat( 4, minmax( 0, 1fr ) );
+		grid-template-columns: repeat( 4, minmax(0, 1fr) );
 	}
 }
 
@@ -84,7 +84,7 @@
 			}
 
 			svg {
-				fill: inherit;
+				fill: currentColor;
 			}
 
 			&:hover > a,
