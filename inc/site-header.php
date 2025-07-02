@@ -20,13 +20,21 @@ function be_register_menus() {
 	);
 
 }
+
 add_action( 'after_setup_theme', 'be_register_menus' );
 
 /**
  * Site Header
  */
 function be_site_header() {
-	echo '<a href="' . esc_url( home_url() ) . '" rel="home" class="site-header__logo" aria-label="' . esc_attr( get_bloginfo( 'name' ) ) . ' Home">' . get_bloginfo( 'name' ) . '</a>';
+	$logo_uri = get_stylesheet_directory_uri() . '/assets/images/logo-full.svg';
+	echo '<a href="' . esc_url( home_url() )
+	     . '" rel="home" class="site-header__logo" aria-label="'
+	     . esc_attr( get_bloginfo( 'name' ) )
+	     . ' Home">'
+	     . '<img src="' . esc_url( $logo_uri )
+	     . '" alt="' . get_bloginfo( 'name' ) . '">'
+	     . '</a>';
 
 	echo '<div class="site-header__toggles">';
 	echo be_mobile_menu_toggle();
@@ -34,21 +42,27 @@ function be_site_header() {
 
 	echo '<nav class="nav-menu" role="navigation">';
 	if ( has_nav_menu( 'primary' ) ) {
-		wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container_class' => 'nav-primary' ) );
+		wp_nav_menu( array(
+			'theme_location'  => 'primary',
+			'menu_id'         => 'primary-menu',
+			'container_class' => 'nav-primary'
+		) );
 	}
 	echo '</nav>';
 
 }
+
 add_action( 'tha_header_bottom', 'be_site_header', 11 );
 
 /**
  * Mobile menu toggle
  */
 function be_mobile_menu_toggle() {
-	$output  = '<button aria-label="Menu" class="menu-toggle">';
+	$output = '<button aria-label="Menu" class="menu-toggle">';
 	$output .= be_icon( array( 'icon' => 'menu', 'class' => 'open' ) );
 	$output .= be_icon( array( 'icon' => 'close', 'class' => 'close' ) );
 	$output .= '</button>';
+
 	return $output;
 }
 
@@ -56,9 +70,10 @@ function be_mobile_menu_toggle() {
  * Add a dropdown icon to top-level menu items.
  *
  * @param string $output Nav menu item start element.
- * @param object $item   Nav menu item.
- * @param int    $depth  Depth.
- * @param object $args   Nav menu args.
+ * @param object $item Nav menu item.
+ * @param int $depth Depth.
+ * @param object $args Nav menu args.
+ *
  * @return string Nav menu item start element.
  * Add a dropdown icon to top-level menu items
  */
@@ -88,4 +103,5 @@ function be_nav_add_dropdown_icons( $output, $item, $depth, $args ) {
 
 	return $output;
 }
+
 add_filter( 'walker_nav_menu_start_el', 'be_nav_add_dropdown_icons', 10, 4 );

@@ -49,7 +49,7 @@ function be_entry_header() {
 
 	} else {
 		do_action( 'be_entry_title_before' );
-		echo '<h1 class="entry-title">' . esc_html( get_the_title() ) . '</h1>';
+		echo '<h1 class="wp-block-post-title entry-title">' . esc_html( get_the_title() ) . '</h1>';
 		do_action( 'be_entry_title_after' );
 	}
 }
